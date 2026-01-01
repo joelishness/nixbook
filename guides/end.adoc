@@ -2,4 +2,4 @@
 
 If you have any questions, comments, or issues, check out the project’s page at:
 
-https://github.com/mkellyxp/nixbook
+https://github.com/joelishness/nixbook
