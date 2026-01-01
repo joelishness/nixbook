@@ -24,10 +24,54 @@ The **nixbook lite** version:
 
 ---
 
-## Download the Installer
-[Click here to download the ISO](https://s3.membervaultcdn.com/nixbook/nixbook-installer-25.11.iso)
+## Step 1:  Install NixOS, and choose the No Desktop option.
 
----
+![Screenshot from 2024-10-12 10-24-21](https://github.com/user-attachments/assets/865760ec-fcd1-4133-be35-5fb5cf0e6638)
+
+
+## Step 2:  Enable unfree software
+
+![Screenshot from 2024-10-12 10-24-31](https://github.com/user-attachments/assets/77b02843-4c3e-409c-82dc-7579578b2582)
+
+
+## Step 3:  Format your drive however you like (erase disk, swap, no hibernate)
+
+![Screenshot from 2024-10-12 10-24-44](https://github.com/user-attachments/assets/968111d9-c018-4be5-8aaa-ee5c647b2617)
+
+
+## Step 4:  Reboot, login, and connect to wifi, then hit ESC
+
+```
+nmtui
+```
+
+
+## Step 5:  Go to /etc and nix-shell git
+```
+cd /etc/
+nix-shell -p git
+```
+
+
+## Step 6:  Clone the nixbook repo  (make sure you run as sudo and you're in /etc!)
+```
+sudo git clone https://github.com/joelishness/nixbook
+```
+
+## Step 7:  Run the install script (run this with NO sudo)
+```
+cd nixbook
+./install.sh
+```
+
+*or for nixbook lite*
+```
+cd nixbook
+./install_lite.sh
+```
+
+## Step 8:  Enjoy nixbook!
+
 You can always manually run updates by running **Update and Reboot** in the menu.
 
 If you want to completely reset this nixbook, wipe off your personal data to give it to someone else, or start fresh, run **Powerwash** from the menu.
