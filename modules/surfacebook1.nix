@@ -19,6 +19,22 @@ imports = [
     naturalScrolling = true;
   };
 
+  # Webcam
+  # 1. Enable linux-firmware, which includes the required ipu3-fw.bin
+  hardware.enableRedistributableFirmware = true;
+
+  # 2. Add jill to the video group
+  users.users.jill.extraGroups = [ "networkmanager" "wheel" "video" ];
+
+  # 3. Install libcamera (userspace IPU3 pipeline + IPA modules)
+  environment.systemPackages = with pkgs; [
+    libcamera
+    v4l-utils   # handy for testing with v4l2-ctl --list-devices
+  ];
+
+  # Check after rebuild and reboot
+  #cam --list          # should show front and rear cameras
+
   # Prefer USB network dongle over internal card
   # 1. Permanent Naming via Udev
   # Matches the hardware 'permaddr' to assign the name 'wlan-usb'
