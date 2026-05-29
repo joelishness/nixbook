@@ -35,6 +35,12 @@ imports = [
   # Check after rebuild and reboot
   #cam --list          # should show front and rear cameras
 
+  # Make kernel compile faster
+  nix.settings = {
+    cores = 4;      # use all hyperthreads for the kernel build
+    max-jobs = 1;   # one job at a time avoids OOM on 8 GB
+  };
+  
   # Prefer USB network dongle over internal card
   # 1. Permanent Naming via Udev
   # Matches the hardware 'permaddr' to assign the name 'wlan-usb'
