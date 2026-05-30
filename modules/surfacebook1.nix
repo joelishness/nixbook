@@ -32,10 +32,7 @@ imports = [
     v4l-utils   # handy for testing with v4l2-ctl --list-devices
   ];
 
-  # 4. Pull linux-firmware into the system, including ipu3-fw.bin
-  hardware.enableRedistributableFirmware = true;
-
-  # 5. Load the camera sensor drivers
+  # 4. Load the camera sensor drivers
   boot.kernelModules = [ "ov5693" "ov8865" ];
 
   # Check after rebuild and reboot
